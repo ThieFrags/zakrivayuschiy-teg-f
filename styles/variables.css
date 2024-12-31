@@ -1,1 +1,17 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+
+:root {
+  --main-font-family: 'Inter-Variable';
+  --secondary-font-family: 'PressStart2P';
+  --fwnormal: 400;
+  --fwbold: 700;
+  --main-text-size: 18px;
+  --button-text-size: 14px;
+  --logo-text-size: clamp(3.063rem, 1.502vw + 2.71rem, 4.063rem);
+  --header-text-size: clamp(0.875rem, 0.845vw + 0.677rem, 1.438rem);
+  --rplv: repeating-linear-gradient(0deg, #d3d3d3, #d3d3d3 2px, transparent 2px, transparent 4px);
+  --rplg: repeating-linear-gradient(90deg, #d3d3d3, #d3d3d3 2px, transparent 2px, transparent 4px);
+  --lg: linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
+  --accolor: #000;
+  --accolorm: #fff;
+}
