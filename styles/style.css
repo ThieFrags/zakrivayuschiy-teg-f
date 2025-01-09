@@ -263,6 +263,7 @@
 .icon-big {
   width: 39px;
   flex-shrink: 0;
+  mix-blend-mode: difference;
 }
 
 /* Фильтры */
