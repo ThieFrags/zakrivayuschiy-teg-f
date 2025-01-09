@@ -22,10 +22,10 @@
 }
 
 .background {
+  background-image: var(--rplv), var(--rplg), var(--lg);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  background-image: var(--rplv), var(--rplg), var(--lg);
   block-size: 100vh;
 }
 
@@ -78,9 +78,9 @@
 
 .card {
   border: 2px solid var(--accolor);
+  background-color: var(--accolorm);
   min-inline-size: 375px;
   max-inline-size: 700px;
-  background-color: var(--accolorm);
 }
 
 .card-title {
@@ -125,6 +125,7 @@
   object-position: center;
   block-size: 100%;
   inline-size: 100%;
+  border-top: 2px solid var(--accolor);
 }
 
 .block-text {
@@ -132,10 +133,6 @@
   flex-direction: column;
   gap: 25px;
   margin: 25px;
-}
-
-.card-images {
-  border-top: 2px solid var(--accolor);
 }
 
 .block-like {
@@ -153,29 +150,29 @@
 }
 
 .card__like-button {
-  min-inline-size: 130px;
   padding: 9.5px 0;
   outline-offset: -2px;
+  min-inline-size: 130px;
 }
 
 .button {
+  position: relative;
   border: none;
   outline: 2px solid var(--accolor);
-  background-color: var(--accolorm);
-  cursor: pointer;
-  transition: 0.5s ease-in-out;
-  position: relative;
   overflow: hidden;
+  background-color: var(--accolorm);
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .button::after {
-  position: absolute;
   content: "";
-  transition: transform 0.5s ease-in-out;
+  position: absolute;
   inset: 0;
-  transform-origin: left;
   background-color: var(--accolor);
+  transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
+  transform-origin: left;
 }
 
 .button:hover::after {
@@ -196,11 +193,11 @@
 }
 
 .button__text {
+  color: var(--accolorm);
   font-family: var(--secondary-font-family);
   font-size: var(--button-text-size);
-  font-variation-settings: 'wght' var(--fwbold);
   line-height: 90%;
-  color: var(--accolorm);
+  font-variation-settings: 'wght' var(--fwbold);
   mix-blend-mode: difference;
 }
 
@@ -224,12 +221,12 @@
 }
 
 .dialog-floppy[open] {
-  box-sizing: border-box;
-  border: 2px solid var(--accolor);
-  width: clamp(21.313rem, 1.127vw + 21.048rem, 22.063rem);
   display: flex;
-  gap: 30px;
   flex-direction: column;
+  gap: 30px;
+  box-sizing: border-box;
+  width: clamp(21.313rem, 1.127vw + 21.048rem, 22.063rem);
+  border: 2px solid var(--accolor);
   padding: 28px 28px;
 }
 
@@ -249,9 +246,9 @@
 .dialog__text {
   font-family: var(--secondary-font-family);
   font-size: var(--button-text-size);
-  font-variation-settings: 'wght' var(--fwbold);
   line-height: 150%;
   text-transform: uppercase;
+  font-variation-settings: 'wght' var(--fwbold);
 }
 
 .icon {
@@ -261,8 +258,8 @@
 }
 
 .icon-big {
-  width: 39px;
   flex-shrink: 0;
+  width: 39px;
   mix-blend-mode: difference;
 }
 
@@ -362,8 +359,8 @@
   }
 
   .dialog-floppy[open] {
-    padding: 32px 42px;
     justify-content: center;
+    padding: 32px 42px;
   }
 
   .dialog__text {
