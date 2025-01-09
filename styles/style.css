@@ -49,13 +49,13 @@
 }
  
 .logo {
-  font-family: var(--secondary-font-family);
+  font-family: var(--secondary-font-family, sans-serif);
   font-size: var(--logo-text-size);
   
 }
 
 .header-title {
-  font-family: var(--secondary-font-family);
+  font-family: var(--secondary-font-family, sans-serif);
   font-size: var(--header-text-size);
   text-transform: uppercase;
 }
@@ -72,7 +72,7 @@
 .card-list {
   display: flex;
   flex-direction: column;
-  gap: 52px;
+  gap: 50px;
   inline-size: clamp(23.438rem, 30.516vw + 16.285rem, 43.75rem);
 }
 
@@ -100,7 +100,7 @@
   top: 25px;
   right: clamp(0.813rem, 1.127vw + 0.548rem, 1.563rem);
   opacity: 0.5;
-  font-family: var(--secondary-font-family);
+  font-family: var(--secondary-font-family, sans-serif);
   font-size: var(--button-text-size);
   text-shadow:
   -1px 0 var(--accolorm), 
@@ -138,8 +138,9 @@
 .block-like {
   display: flex;
   justify-content: end;
-  gap: 12px;
-  margin: 0 25px 25px 0;
+  align-items: center;
+  gap: 6px;
+  margin: 0 25px 20px 0;
 }
 
 .card__icon-button {
@@ -153,6 +154,7 @@
   padding: 9.5px 0;
   outline-offset: -2px;
   min-inline-size: 130px;
+  max-block-size: 38px;
 }
 
 .button {
@@ -194,7 +196,7 @@
 
 .button__text {
   color: var(--accolorm);
-  font-family: var(--secondary-font-family);
+  font-family: var(--secondary-font-family, sans-serif);
   font-size: var(--button-text-size);
   line-height: 90%;
   font-variation-settings: 'wght' var(--fwbold);
@@ -244,7 +246,7 @@
 }
 
 .dialog__text {
-  font-family: var(--secondary-font-family);
+  font-family: var(--secondary-font-family, sans-serif);
   font-size: var(--button-text-size);
   line-height: 150%;
   text-transform: uppercase;
@@ -261,6 +263,10 @@
   flex-shrink: 0;
   width: 39px;
   mix-blend-mode: difference;
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 /* Фильтры */
@@ -300,53 +306,66 @@
  contour    - контур
  */
 
-.like-icon path {
-  fill: transparent;
-  transition: fill .3s ease;
-}
-
-.like-icon .sparks {
-  fill-opacity: 0;
-}
-
-.like-icon .contour {
-  fill: var(--accolor);
-}
-
-/* active */
-.card__icon-button:active .like-icon .core,
-.card__icon-button:active .like-icon .main-body {
-  fill: var(--accent);
-}
-
-/* hover */
-.card__icon-button:hover .like-icon .main-body {
-  transition-delay: .05s;
-}
-
-.card__icon-button:hover:not(:active) .like-icon:not(.is-liked) .main-body,
-.card__icon-button:hover:not(:active) .like-icon:not(.is-liked) .core {
-  fill: var(--accolor);
-}
-
-/* fill heart red */
-.like-icon.is-liked {
-  transform-origin: center;
-  animation: scaleHeart .3s ease-in .1s;
-}
-
-.like-icon.is-liked .sparks {
-  animation: fillOpacity .3s ease-in .3s;
-}
-
-.like-icon.is-liked path {
-  fill: var(--accent);
-}
-
-.like-icon.is-liked .contour {
-  transition-duration: .3s;
-}
-
+ .like-icon .core,
+ .like-icon .main-body {
+   fill: transparent;
+   transition: fill .3s ease;
+ }
+ 
+ .like-icon .sparks {
+   fill-opacity: 0;
+ }
+ 
+ .like-icon .contour {
+   transition: fill .1s linear;
+   fill: var(--accolor);
+ }
+ 
+ /* hover */
+ .card__icon-button:hover:not(:active) .like-icon:not(.is-liked) .main-body,
+ .card__icon-button:hover:not(:active) .like-icon:not(.is-liked) .core {
+   fill: var(--accolor);
+ }
+ 
+ .card__icon-button:hover .like-icon:not(.is-liked) .core  {
+   transition-delay: 0s;
+ }
+ 
+ .card__icon-button:hover .like-icon:not(.is-liked) .main-body {
+   transition-delay: .05s;
+ }
+ 
+ /* active */
+ .card__icon-button:active .like-icon .core,
+ .card__icon-button:active .like-icon .main-body {
+   fill: var(--accent);
+ }
+ 
+ .card__icon-button:active .like-icon .main-body {
+   transition-delay: .05s;
+ }
+ 
+ /* fill heart red */
+ .like-icon.is-liked .heart {
+   transform-origin: center;
+   animation: scaleHeart .3s ease-in .1s;
+ }
+ 
+ .like-icon.is-liked .sparks {
+   animation: fillOpacity .3s ease-in .3s;
+ }
+ 
+ .like-icon.is-liked .core,
+ .like-icon.is-liked .main-body,
+ .like-icon.is-liked .sparks {
+   fill: var(--accent);
+ }
+ 
+ .like-icon.is-liked .contour {
+   fill: var(--accent);
+   transition: fill .3s ease .06s;
+ }
+ 
 /* Медиазапросы */
 
 @media (width <= 375px) {
